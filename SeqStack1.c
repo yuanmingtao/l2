@@ -1,4 +1,4 @@
-/*整型顺序栈*/
+/*整型顺序栈1*/
 #define StackSize 100
 typedef struct {
 	int data[StackSize];
