@@ -1,13 +1,14 @@
+/*二叉链表*/
 #include<stdio.h>
 #include<stdlib.h>
-typedef int DataType;
+typedef char DataType;
 typedef struct node{
 	DataType data;
 	struct node * lchild, * rchild;
 }BinTNode;
 typedef BinTNode * BinTree;
 
-/*(A(B(C,D),E));*/
+
 /*广义表创建二叉树*/
 BinTree CreateTree(char *str)
 {
@@ -15,7 +16,7 @@ BinTree CreateTree(char *str)
 	BinTNode *p = NULL;
 	int top,k,j=0;
 	char ch = str[j];
-	BinTNode * b = NULL;
+	BinTree b = NULL;
 	top = -1;
 	while(ch != '\0')
 	{
@@ -46,10 +47,11 @@ BinTree CreateTree(char *str)
 							st[top]->lchild = p;
 							break;
 						case 2:
-							st[top]->lchild = p;
+							st[top]->rchild = p;
 							break;
 					}
 				}
+				break;
 		}
 		j++;
 		ch = str[j];
@@ -72,6 +74,7 @@ int main()
 	char str[20];
 	BinTree bt;
 	printf("input general table\n");
+	/*(A(B(,D(E,F)),C))*/
 	scanf("%s",str);
 	bt = CreateTree(str);
 	PreOrder(bt);
